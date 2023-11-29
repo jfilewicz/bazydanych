@@ -1,0 +1,20 @@
+1. zależności funkcyjne:
+id_produktu -> nazwa_produktu, cena_produktu, VAT
+id_klienta -> nazwa_klienta
+data_zamowienia -> ilość, id_produktu
+nazwa_produktu -> VAT, cena_produktu
+suma_brutto -> suma_netto
+cena_produktu -> suma_netto, VAT
+
+--2
+klucze kandydujace: id_produktu, id_kienta, data_zamowienia
+
+--3
+zaleznosci
+id_pomieszczenia -> numer_pomieszczenia, id_budynku, powierzchnia, liczba_okien, liczba_drzwi
+id_budynku -> ulica, miasto, kod_pocztowy
+kod_pocztowy -> miasto
+--numer_pomieszczenia -> powierzchnia, liczba_okien, liczba_drzwi
+
+klucze kandydujace: id_pomieszczenia, id_budynku, numer_pomieszczenia
+
