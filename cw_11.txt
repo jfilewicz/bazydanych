@@ -1,0 +1,57 @@
+zadanie 1
+A) Przeanalizuj plan wykonania. Opisz różnice, z czego one wynikają? Porównaj czas wykonania 
+operacji, koszty operacji I/O, koszty CPU oraz ilość wierszy, które musiały być wczytane.
+
+- z kluczem głównym
+czas:			0.001s
+koszty operacji I/O:	0.003125
+koszty CPU:		0.0001581
+ilość wierszy:		1
+
+- po usunieciu klucza głównego
+czas:			0.033s
+koszty operacji I/O:	0.916458
+koszty CPU:		0.133606
+ilość wierszy:		121317
+
+Usuniecie klucza głównego spowodowało, że czas wykonania był dłuższy. Zwiększyły się też koszty oraz ilość wierszy.
+
+B) Jakie zmiany w planie wykonania zapytania wprowadza zmiana słowa AND na OR?
+
+- z kluczem głównym
+czas:			0.019s	
+koszty operacji I/O:	0.203866
+koszty CPU:		0.133606
+ilość wierszy:		121317
+
+- po usunieciu klucza głównego
+czas:			0.027s
+koszty operacji I/O:	0.916458
+koszty CPU:		0.133606
+ilość wierszy:		121317
+
+Zmiana AND na OR spowodowała, że czas wykonania po usunieciu klucza jest tylko trochę dłuższy, koszty operacji I/O wzrosły, ale koszty CPU i ilość wierszy pozostała taka sama.
+
+zadanie 2
+
+ --zapytanie
+SELECT ProductID, Name, StandardCost
+FROM Production.Product
+WHERE ProductID = 492;
+
+- przed stworzeniem indeksu
+czas:			0.000s	
+koszty operacji I/O:	0.003125
+koszty CPU:		0.0001581
+ilość wierszy:		1
+
+--stworzenie indeksu
+CREATE INDEX idx_productid ON Production.Product(ProductID);
+
+- po stworzeniu indeksu
+czas:			0.000s	
+koszty operacji I/O:	0.003125
+koszty CPU:		0.0001581
+ilość wierszy:		1
+
+Stworzenie indeksu nie wprowadziło znaczącej optymalizacji.
